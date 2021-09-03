@@ -1,0 +1,15 @@
+{
+  "name": "problem-1",
+  "version": "1.0.0",
+  "main": "problem-1.js",
+  "scripts": {
+    "test": "node problem-1-nonoop.js"
+  },
+  "author": "Hersyanda Putra Adi",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "jsdom": "^17.0.0"
+  }
+}
