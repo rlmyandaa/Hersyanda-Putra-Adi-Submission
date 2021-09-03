@@ -20,4 +20,6 @@
 **3.1 Data Visualization**
 
     node problem-3-3_dataVisualization.js
+
 ***Sensor Data Streamer must be run first***
+***port 1212 will be used***

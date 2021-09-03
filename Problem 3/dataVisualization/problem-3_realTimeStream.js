@@ -3,7 +3,7 @@ function getLatestData() {
   $.ajax({
     async: false,
     type: "GET",
-    url: "http://127.0.0.1:8080/api?endpoint=realtime&data=temperature&room=1",
+    url: "http://127.0.0.1:1212/api?endpoint=realtime&data=temperature&room=1",
     success: function (data) {
       tmp = data;
     },

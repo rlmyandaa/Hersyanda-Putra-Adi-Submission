@@ -3,7 +3,7 @@ function getHistoricData() {
   $.ajax({
     async: false,
     type: "GET",
-    url: "http://127.0.0.1:8080/api?endpoint=historic",
+    url: "http://127.0.0.1:1212/api?endpoint=historic",
     success: function (data) {
       tmp = data;
     },

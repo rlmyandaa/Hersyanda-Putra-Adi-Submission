@@ -44,15 +44,15 @@ http
       });
     }
   })
-  .listen(8080);
+  .listen(1212);
 
-console.log("Server Started at 127.0.0.1:8000");
+console.log("Server Started at 127.0.0.1:1212");
 
 //Open When Server Start
 const open = require("open");
 const { time } = require("console");
 (async () => {
-  await open("http://127.0.0.1:8080/problem-3_realTimeStream.html");
+  await open("http://127.0.0.1:1212/problem-3_realTimeStream.html");
 })();
 
 //======================================================================================================================================================
