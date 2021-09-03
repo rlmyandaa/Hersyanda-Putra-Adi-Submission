@@ -1,58 +1,23 @@
 const fs = require("fs");
 const logPath = "logs/log.json";
 
-//Function to Get Log Data from logs/log.json
-function openLog(path) {
-  let logContent = fs.readFileSync(path, "utf8");
-  return JSON.parse(logContent);
-}
+//======================================================================================================================================================
+//============================================================ Main Program Call ========================================================================
+//======================================================================================================================================================
 
-//Function for Calculating Min Max Median Average
-function findMMMA(data) {
-  let mmma = new Object();
-  mmma.min = Math.min.apply(null, data);
-  mmma.max = Math.max.apply(null, data);
-  mmma.avg = averaging(data);
-  mmma.median = findMedian(data);
-
-  return mmma;
-}
-
-//Function to Get Median Data
-function findMedian(data) {
-  let median = null;
-
-  //Sorting with Rule
-  data.sort(function (a, b) {
-    return a > b ? 1 : a < b ? -1 : 0;
-  });
-
-  //If the Data Count is Even
-  if (data.length % 2 === 0) {
-    median = (data[data.length / 2] + data[data.length / 2 + 1]) / 2;
+//Set Log Reading Interval -> 15 Minutes converted to second
+let interval = 5;
+setInterval(function () {
+  try {
+    print(getRoomSummary(interval));
+  } catch (error) {
+    console.log("Error. Possible Cause : Dummy Data Logger didn't started yet");
   }
-  //If the Data Count is Odd
-  if (data.length % 2 === 1) {
-    median = data[Math.ceil(data.length / 2)];
-  }
-  //If there's only 1 Data
-  if (data.length === 1) {
-    median = data[0];
-  }
-  return median;
-}
+}, interval * 1000);
 
-//Function to Get All Data within x Seconds before now
-function getDataInRangeSeconds(seconds) {
-  let data = openLog(logPath).filter(function (data) {
-    let timeData = new Date(data.timestamp);
-    //console.log("Data ",timeData.getTime());
-    let now = new Date(Date.now()).getTime();
-    //console.log("Now ",now - 5000);
-    return timeData.getTime() >= now - seconds * 1000;
-  });
-  return data;
-}
+//======================================================================================================================================================
+//============================================================ Main Function ========================================================================
+//======================================================================================================================================================
 
 //Function to Get Min Max Median Average from Each Room and Averaging Sensor Value
 function getRoomSummary(seconds) {
@@ -118,13 +83,16 @@ function getRoomSummary(seconds) {
   return all;
 }
 
-//Function for Averaging Data
-function averaging(data) {
-  let average =
-    data.reduce(function (a, b) {
-      return a + b;
-    }) / data.length;
-  return average;
+//Function to Get All Data within x Seconds before now
+function getDataInRangeSeconds(seconds) {
+  let data = openLog(logPath).filter(function (data) {
+    let timeData = new Date(data.timestamp);
+    //console.log("Data ",timeData.getTime());
+    let now = new Date(Date.now()).getTime();
+    //console.log("Now ",now - 5000);
+    return timeData.getTime() >= now - seconds * 1000;
+  });
+  return data;
 }
 
 //Function for Processing Data from a Room
@@ -148,6 +116,61 @@ function processRoom(room) {
   return tmp;
 }
 
+//======================================================================================================================================================
+//============================================================ Support Function ========================================================================
+//======================================================================================================================================================
+
+//Function to Get Log Data from logs/log.json
+function openLog(path) {
+  let logContent = fs.readFileSync(path, "utf8");
+  return JSON.parse(logContent);
+}
+
+//Function for Calculating Min Max Median Average
+function findMMMA(data) {
+  let mmma = new Object();
+  mmma.min = Math.min.apply(null, data);
+  mmma.max = Math.max.apply(null, data);
+  mmma.avg = averaging(data);
+  mmma.median = findMedian(data);
+
+  return mmma;
+}
+
+//Function to Get Median Data
+function findMedian(data) {
+  let median = null;
+
+  //Sorting with Rule
+  data.sort(function (a, b) {
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
+
+  //If the Data Count is Even
+  if (data.length % 2 === 0) {
+    median = (data[data.length / 2 -1] + data[data.length / 2]) / 2;
+  }
+  //If the Data Count is Odd
+  else if (data.length % 2 === 1) {
+    median = data[Math.ceil(data.length / 2)];
+  }
+  //If there's only 1 Data
+  else if (data.length == 1) {
+    median = data[0];
+  }
+
+  return median;
+}
+
+//Function for Averaging Data
+function averaging(data) {
+  let average =
+    data.reduce(function (a, b) {
+      return a + b;
+    }) / data.length;
+  return average;
+}
+
 //Function for Giving Whitespace in Output to Get Evenly Written Output
 function whitespace(count) {
   tmp = "";
@@ -160,7 +183,7 @@ function whitespace(count) {
 //Function to Print Data to Console
 function print(data) {
   console.log("15 minutes Report, Report Time: " + new Date(Date.now()));
-  
+
   //Print Table
   console.log(
     "Room",
@@ -214,9 +237,3 @@ function print(data) {
     data.averageHumidity
   );
 }
-
-//Set Log Reading Interval -> 15 Minutes converted to second
-let interval = 15*60;
-setInterval(function () {
-  print(getRoomSummary(interval));
-}, interval * 1000);
