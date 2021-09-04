@@ -19,12 +19,16 @@ http
     //API Routes
     if (String(q.pathname) === "/api") {
       //Filter by Data Endpoint Type
+
+      //Get Latest Data for Realtime Endpoint
       if (q.query.endpoint === "realtime") {
         let data = getLatestData(q.query.room, q.query.data);
         res.writeHead(200, { "Content-Type": "application/json" });
         res.write(data);
         return res.end();
       }
+
+      //Get Historic Data for Historic Endpoint
       if (q.query.endpoint === "historic") {
         let data = getHistoricData();
         res.writeHead(200, { "Content-Type": "application/json" });

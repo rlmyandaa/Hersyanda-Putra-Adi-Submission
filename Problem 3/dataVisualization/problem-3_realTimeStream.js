@@ -21,8 +21,6 @@ const tempConfig = {
         backgroundColor: "rgb(38, 70, 83)",
         borderColor: "rgb(38, 70, 83)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 2",
@@ -30,8 +28,6 @@ const tempConfig = {
         backgroundColor: "rgb(42, 157, 143)",
         borderColor: "rgb(42, 157, 143)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 3",
@@ -39,8 +35,6 @@ const tempConfig = {
         backgroundColor: "rgb(233, 196, 106)",
         borderColor: "rgb(233, 196, 106)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 4",
@@ -48,8 +42,6 @@ const tempConfig = {
         backgroundColor: "rgb(244, 162, 97)",
         borderColor: "rgb(244, 162, 97)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 5",
@@ -57,8 +49,6 @@ const tempConfig = {
         backgroundColor: "rgb(231, 111, 81)",
         borderColor: "rgb(231, 111, 81)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
     ],
   },
@@ -121,8 +111,6 @@ const humidityConfig = {
         backgroundColor: "rgb(38, 70, 83)",
         borderColor: "rgb(38, 70, 83)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 2",
@@ -130,8 +118,6 @@ const humidityConfig = {
         backgroundColor: "rgb(42, 157, 143)",
         borderColor: "rgb(42, 157, 143)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 3",
@@ -139,8 +125,6 @@ const humidityConfig = {
         backgroundColor: "rgb(233, 196, 106)",
         borderColor: "rgb(233, 196, 106)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 4",
@@ -148,8 +132,6 @@ const humidityConfig = {
         backgroundColor: "rgb(244, 162, 97)",
         borderColor: "rgb(244, 162, 97)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
       {
         label: "Room Area 5",
@@ -157,8 +139,6 @@ const humidityConfig = {
         backgroundColor: "rgb(231, 111, 81)",
         borderColor: "rgb(231, 111, 81)",
         pointRadius: 2,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4
       },
     ],
   },
