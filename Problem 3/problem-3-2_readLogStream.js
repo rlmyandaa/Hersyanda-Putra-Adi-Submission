@@ -5,6 +5,7 @@ const logPath = "logs/log.json";
 //============================================================ Main Program Call ========================================================================
 //======================================================================================================================================================
 
+console.log("Read in 15 Minute Interval");
 // Set Log Reading Interval -> 15 Minutes converted to second
 let interval = 15*60;
 try {
@@ -12,6 +13,7 @@ try {
 } catch (error) {
   console.log("Error. Possible Cause : Dummy Data Logger didn't started yet");
 }
+
 setInterval(function () {
   try {
     print(getRoomSummary(interval));

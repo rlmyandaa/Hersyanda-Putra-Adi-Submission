@@ -28,6 +28,7 @@ if (fs.existsSync(logPath) && fs.readFileSync(logPath, "utf8").length === 0) {
 //Push Data / Write Log in Every 2 Minute
 let interval = 2*60;
 
+console.log("Write in 2 Minute Push Rate")
 writeLog();
 
 setInterval(writeLog, interval*1000);
