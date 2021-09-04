@@ -16,7 +16,8 @@ if (!fs.existsSync(logPath)) {
 }
 
 //Push Data / Write Log in Every 2 Minute
-let interval = 2;
+let interval = 2*60;
+writeLog();
 setInterval(writeLog, interval*1000);
 
 //======================================================================================================================================================

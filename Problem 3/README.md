@@ -3,6 +3,7 @@
 **Used Library**
 
  - Open
+ - Chart.js with Realtime plugin
 
 ## Running
 **First time**

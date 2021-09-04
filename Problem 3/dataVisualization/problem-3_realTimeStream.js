@@ -68,8 +68,8 @@ const tempConfig = {
       x: {
         type: "realtime",
         realtime: {
-          duration: 180000,
-          refresh: 5000,
+          duration: 1000000,
+          refresh: 2*60*1000,
           delay: 1000, 
           ttl: undefined,
           frameRate: 10,
@@ -167,10 +167,10 @@ const humidityConfig = {
       x: {
         type: "realtime",
         realtime: {
-          duration: 180000,
-          refresh: 5000,
+          duration: 1000000,
+          refresh: 2*60*1000,
           delay: 1000, 
-          ttl: undefined, // data will be automatically deleted as it disappears off the chart
+          ttl: undefined,
           frameRate: 10,
 
           // a callback to update datasets
