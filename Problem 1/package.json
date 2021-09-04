@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "problem-1.js",
   "scripts": {
-    "test": "node problem-1-nonoop.js"
+    "test": "mocha tests"
   },
   "author": "Hersyanda Putra Adi",
   "license": "ISC",
@@ -11,5 +11,9 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "jsdom": "^17.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0"
   }
 }

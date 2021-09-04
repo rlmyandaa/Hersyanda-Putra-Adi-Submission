@@ -7,8 +7,18 @@ const logPath = "logs/log.json";
 
 //Check if Log already exist
 if (!fs.existsSync(logPath)) {
-  let data = Array();
-  fs.appendFile("logs/log.json", JSON.stringify(data), (err) => {
+  let data = [];
+  fs.appendFileSync("logs/log.json", JSON.stringify(data), (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+}
+
+//Check if Log already exist, but content is empty
+if (fs.existsSync(logPath) && fs.readFileSync(logPath, "utf8").length === 0) {
+  let data = [];
+  fs.writeFileSync("logs/log.json", JSON.stringify(data), (err) => {
     if (err) {
       console.error(err);
     }
@@ -17,7 +27,9 @@ if (!fs.existsSync(logPath)) {
 
 //Push Data / Write Log in Every 2 Minute
 let interval = 2*60;
+
 writeLog();
+
 setInterval(writeLog, interval*1000);
 
 //======================================================================================================================================================

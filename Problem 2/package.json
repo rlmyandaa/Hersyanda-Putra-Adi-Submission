@@ -4,8 +4,11 @@
   "description": "",
   "main": "problem-2.js",
   "scripts": {
-    "test": "node problem-2.js"
+    "test": "mocha tests"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4"
+  }
 }

@@ -3,10 +3,10 @@
 **Used Library**
 
  - Open
- - Chart.js with Realtime plugin
+ - Mocha (globally), Chai, and Chai-Http for testing
 
 ## Running
-**First time**
+**First time run**
 
     npm install
 
@@ -24,3 +24,7 @@
 
  - ***Sensor Data Streamer must be run first***
  - ***port 1212 will be used***
+
+## Testing
+
+    npm test

@@ -8,7 +8,7 @@ var url = require("url");
 //======================================================================================================================================================
 
 // Start Server
-http
+const server = http
   .createServer(function (req, res) {
     var q = url.parse(req.url, true);
     //Root Folder for Data Visualization
@@ -52,7 +52,7 @@ http
 
 console.log("Server Started at 127.0.0.1:1212");
 
-//Open When Server Start
+// Open When Server Start
 const open = require("open");
 const { time } = require("console");
 (async () => {
@@ -128,4 +128,8 @@ function getHistoricData() {
       .slice(-1000),
   };
   return JSON.stringify(result);
+}
+
+module.exports = {
+  server: server
 }
